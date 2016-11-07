@@ -1,19 +1,20 @@
-# version 1.0 
+# version 1.1
 
 FROM ubuntu:latest
 
-MAINTAINER Jose G. Faisca <jose.faisca@gmail.com>
+MAINTAINER Johan Sellström <johan.sellstrom@combient.com>
 
 # -- IPFS variables -- 
-ENV IPFS_VERSION v0.4.2 
+ENV IPFS_VERSION v0.4.4
 ENV IPFS_PATH /data/ipfs
 ENV IPFS_LOGGING ""
+ENV IPFS_DEBUG ""
 
 # -- Terminal variable --
 ENV TERM xterm
 
 # -- Install dependencies --
-RUN apt-get update && apt-get install -y curl
+RUN apt-get update -y && apt-get install -y curl
 
 # -- Install IPFS ---
 RUN curl -O https://dist.ipfs.io/go-ipfs/${IPFS_VERSION}/go-ipfs_${IPFS_VERSION}_linux-amd64.tar.gz \
